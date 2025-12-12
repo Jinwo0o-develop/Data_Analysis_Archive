@@ -30,17 +30,17 @@
 사용자 코드 조각(User Snippets) 진짜 없을까 싶어서 다시 검색하니까 나옴. 
 ### TIL (간단한 Keyword 정리)
 - Monorepo
-- Rename Refactorin
+- Rename Refactoring
 - User Snippets
 ## 트러블슈팅 (Troubleshooting)
 
 # 📅 개발 및 학습 일지 (Development Log)
 ## 11.Dec.2025 [DAY-4]
 ## ✅ 한 일
-- 이미지 파일 (Cohort와 Month) 생성 및 폴더 정리
-- 프로젝트 분석 방향 설정
-- 분석할 일수(월,주,일) 선택
-- 
+- Matplotlib 객체 지향 방식(`ax`)과 이중축(`.twinx()`)을 활용한 심층 시각화(`진행 방향 결정`) 구현
+- 요일별/일별 매출 패턴 분석 및 타 월(Month) 데이터와의 교차 검증(Cross-validation) 수행
+- 디렉토리 구조 리팩토링 (`src`, `data`, `images` 분리)
+
 ## 배운점(TIL)
  - **이중축(Duelaxis)**그래프 도전
  - **객체생성** ax2, ax1
