@@ -1,6 +1,6 @@
 
-
----**Dec.2025**
+**Dec.2025**
+---
 ### 그래프 컬럼 설명
 **ta_ymd :** 기준 년월일(YYYYMMDD) / **cty_rgn_no :** 시·군·구 코드
 
@@ -17,21 +17,84 @@
 **amt :** 매출 금액 / **cnt : 매출 건수**
 
 
+## 12.Dec.2025 [DAY-5]
+사용자 코드 조각(User Snippets) 진짜 없을까 싶어서 다시 검색하니까 나옴. 
+
+
 # 📅 개발 및 학습 일지 (Development Log)
-## 11.Dec.2025 (DAY-1) [Colab에서의 연습내용 포함]
+## 11.Dec.2025 [DAY-4] [Colab에서의 연습내용 포함]
 ## ※DEV_LOG 파일 및 파일정돈(구조화 시점)
 
 # 📅 개발 및 학습 일지 (Development Log)
-## 10.Dec.2025 (DAY-1) [Colab에서의 연습내용 포함]
-plt.bar / plt.barh / 
-- config.py 모듈
- - plt.gca().spines['postion'].set_visible() / plt.text(x, y, s, weight, ha, va)
+## 10.Dec.2025 [DAY-3]
 ## ✅ 한 일
+ - [x] 매핑자료 'config.py', 그래프 시각화 함수 'my_plotting.py' 모듈화
+ - [x] bar(barh) 학습
+ - [x] 그래프 디테일 학습
+
+
 ## 배운점(TIL)
+ - 그래프 생성
+ - 새로운 프로젝트 파일을 생성하면 다시 매핑자료 입력과 한글설치를 하는 일련의 과정들이 너무 귀찮게 느껴짐
+     - 따라서, 'config.py'를 생성해 모듈화 함.(매핑자료와 한글설치 함수생성)
+     - import 라이브러리 역시 모듈화 하려했음 -> '네임스페이스 오염'과 '명시적인 중요성'으로 인해 사용 비추천 -> 오류찾기도 어려움
+     - ![../02_src/02_Cohort_Practice/images/Font.png](image.png)
+    **간단하게 시간을 절약하고 작업의 효율성을 증가시킬 수 있었음**
+ 
+ - 분석하는 연령대를 나누어 'card_tpbuz_nm_1'분석 (세그멘테이션) 
+     - 일반적인 상향식 막대그래프는 가독성도 떨어지고 보기 불편하다고 느꼈음
+         - label의 갯수가 많아 가독성이 떨어지고, 금액확인이 어려웠음
+     - barh(수평막대그래프) 처럼 눕히는 방법 선택 (sns.barplot은 x와 y값만 바꾸면 됨)
+     - 큰 값에서 작은 값으로 정렬하고 싶으나 'category' 타입은 ㄱ,ㄴ,ㄷ 순으로 정렬
+         - 첫 번째, 데이터전처리 :  ```groupby```를 할 때 .sort_values(ascending=False)
+         - order = data.index 파라미터를 추가 -> '데이터 순서 = 막대 순서 = 색상 리스트'로 1:1 매칭
+
+ - 생성한 barh 그래프가 밋밋
+     - sns.color_palette('Blues_r', len(x)) 으로 그라데이션 색깔을 x개만큼 생성 (큰 값이 가장 진함)
+     - 참고로 palette('색깔_r')에서 _r 은 reverse의 약자임. -> 큰 값을 가장 진하게 하고 싶을 때 사용
+     - 그래프의 외곽선이 답답하고 불편함
+         - plt.gca().spines['position'].set_visible(False)을 통해 제거하고 왼쪽 축만 남김
+
+ - **저번 *추가학습* 때 배운 객체지향적 방법적용**
+     - fig, ax = plt.subplots(figsize=(x,y))를 통해 ax (그래프를 그릴 도화지) 생성
+         - 앞으로 ax의 세부 설정이 가능해짐
+         - 그래프의 x축을 지우기 위해 plt.xticks([]) 사용
+             - 하지만 plt.grid(axis='x')를 표현할 수 없었음.
+             - ax.tick_params()를 사용하고, ax.grid(axis='x') 사용으로 x축수직선 적용 및 해결
+    
+    **그래프에서 객체지향적 접근과 상세한 튜닝으로 가독성, 심미성, 전문성을 챙길 수 있게 됨**
+ 
+ - 데이터 레이블링
+     - plt.text(x, y, s, weight, ha, va) 학습
+     - 반복문(for)과 `enumerate`를 활용하여 모든 막대 위치에 정확한 수치 텍스트(`ax.text`)를 자동 배치.
+         - Before : 퍼센트(pct)와 금액 값을 리스트를 따로 제작하고 text에 기입 ( 2번의 반복 )
+         - After : 논리 구조 개선과 enumerate(df.items())를 통해 반복문 한번으로 기입.
+
+ - 그래프 변수
+ - 생성한 그래프에 집단마다 변수와 내용물을 바꿔줘야 함 -> VScode의 ```F2``` 단축키 역시 불편함
+     - 생성한 그래프를 함수로 변환(data, "그래프 제목", ax, 색깔(기본은 Blues_r))
+     - barh 그래프는 많이 사용할 것 같아 'my_plotting.py' 모듈화
+    **유지보수가 용이해졌고 수정도 간단함**
+    
 ### TIL (간단한 Keyword 정리)
+- 'config.py', 'my_plotting.py' 모듈화
+- seaborn 기준 bar(x, y, palette, ax, order) / plt.text(x, y, s, weight, ha, va) 학습
+- plt.gca().spines['postion'].set_visible(), ax 객체지향적 방법 도입 -> 그래프 전문성, 심미성, 가독성 확보
+
 ## 트러블슈팅 (Troubleshooting)
+
+### 1. 불편한 시각화
+- **문제 :** plt.xticks 사용 -> plt.grid() x수직선 사용불가
+- **방법 :** ax를 통한 객체지향적접근과 세부설정(ax.set_ylabel, ax.grid(axis='x', alpha=0.5))
+- **결과 :** 그래프에 대한 전문적인 접근과 가독성, 심미성 향상 가능.
+
+### 2. 비효율적인 코드
+- **문제 :** plt.text를 사용하기 위한 비효율(2번의 반복문)
+- **방법 :** 논리구조 개선, enumerate 함수 사용
+- **결과 :** 비효율(2번의 반복) 개선
+
 # 📅 개발 및 학습 일지 (Development Log)
-## 09.Dec.2025 (DAY-1) [Colab에서의 연습내용 포함]
+## 09.Dec.2025 [DAY-2] [Colab에서의 연습내용 포함]
 ## ✅ 한 일
  - [x] Git과 VSCode 연결
  - [x] 기본적인 EDA(탐색적 데이터 분석)
@@ -104,12 +167,12 @@ plt.bar / plt.barh /
 - **추가 기능** 한글로 된 매핑자료를 만들었고 데이터를 다루기 편해짐.
 
 ### 추가 공부
- - [ ] .collections[0] *무슨 기능인가요 ?* -> 도형들의 리스트(집합) -> 깊이 있는 제어를 할 때 필요
+ - [x] .collections[0] *무슨 기능인가요 ?* -> 도형들의 리스트(집합) -> 깊이 있는 제어를 할 때 필요
  - [x] cbar = ax.collections[0].colorbar *왜 이렇게 사용하는건가요?* -> 객체지향적으로 세밀하게 다룰 수 있음
  - [ ] Github Markdown -> 학습 중
 
 # 📅 개발 및 학습 일지 (Development Log)
-## 08.Dec.2025 (Colab 활동)
+## 08.Dec.2025 [DAY-1] (Colab 활동)
 ## ✅ 한 일
  - [x] 데이터 전처리 방법
  - [x] 함수와 파라미터 학습
@@ -134,7 +197,7 @@ plt.bar / plt.barh /
  - 데이터의 양이 많아 메모리 사용량을 줄이고자 함.
      - .astype()을 통한 컬럼의 category 타입화
      - 하지만 바뀌지 않았고 df.drop()안에 있는 inplace=T 파라미터를 사용해도 불가능했음
-     - df['컬럼'] 에 다시 넣어주었음
+     - df['컬럼'] = df['컬럼'].astype('category')코드를 통해 적용시음
  
  - Pieplot
  - Pieplot으로 시각화
@@ -162,15 +225,15 @@ plt.bar / plt.barh /
 
 ---
 ## 프로젝트 목표
- - 1. Python 및 데이터 분석 전반에 익숙해지기  
+1. Python 및 데이터 분석 전반에 익숙해지기  
 
-   - (최종 목표: 실무 2~3년차 수준을 향한 성장)
+   - (최종 목표: **실무 2~3년차 수준**을 향한 성장)
 
-2. 데이터 기반 인사이트 도출 및 패턴 발견  
+2. 데이터 기반 **인사이트 도출 및 패턴 발견**
 
-3. 연령별 타겟 마케팅 전략 수립
+3. 연령별 **타겟 마케팅 전략** 수립
 
-4. PPT 발표 수준의 분석 자료 제작
+4. **PPT 발표 수준의 분석 자료 제작**
 
 ## 분석 환경 및 도구 (Tech Stack)
 
