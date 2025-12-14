@@ -22,20 +22,52 @@
 ## 12.Dec.2025 [DAY-5]
 ## ※DEV_LOG 파일 및 파일정돈 (구조화 적용일) [TIL 참고]
 ## ✅ 한 일
- - [X] Monorepo(모노레포)도입 (이유 설명하쟈..)
+ - [X] Monorepo(모노레포)도입
  - [X] Rename Refactoring (리네임 리팩토링)
  - [X] 사용자 코드 조각(User Snippets) 
 
 ## 배운점(TIL)
-import, 타입변경을 편하게 하는 방법이없을까 싶어서 검색하니까 나옴. 
-사용자 코드 조각(User Snippets)
+ - 비효율성
+     - 'config.py', '.csv', 'my_plotting.py' 등을 매 프로젝트마다 파일 입력은 비효율적이라고 느낌
+     - 결과물이 아닌 프로젝트가 여러개 생성되는 것 역시 무의미
+     - 불러오기를 사용하기 위해선 파일 구조를 개선해야 한다고 느낌
+     - 새 프로젝트 마다 'origin', 'git init', 'git remote add' 등 반복적인 git 명령어 사용과 발생하는 오류
+     - 사용자의 실수로 이전 프로젝트에 덮어씌울 가능성 존재
+     
+ - Multirepo -> Monorepo
+     - Monorepo 선택이유는 다음과 같음.
+         - 지속적으로 업데이트 되어야 하고, 파일을 한 곳에 저장한 후 불러오기를 사용해야함 -> 불필요한 용량 낭비 방지
+         - ```README.md``` 파일을 한눈에 보고 싶음 -> ```DEV_LOG.md``` 로 통합하고 대체함.
+         - 파일 작업 현황을 한 눈에 볼 수 있어야 함 (유저와 본인)
+         - 파일 수정과 작업에 용이해야함.
+         - 다음 프로젝트 진행 시 ' 더 알찬 프로젝트 ' 들로 Git을 채울 수 있음 등
 
-(월욜날에 하쟈...)
+ - Monorepo & Rename Refactoring 
+     - ![File_Structure](../02_src/04_Food_Analysis/01_images/File_Structure.png)
+
+
+     - ```00_Common_Data``` -> 작업 데이터 파일 '.csv'
+     - ```01_Shared_Lib``` -> 자주 사용하는 모듈과 이름 변경
+         - 'config.py', 'my_plotting.py' -> [['constants.py','barh_plot.py']] (매핑자료, barh 시각화 함수)
+     - ![Project_name](../02_src/04_Food_Analysis/01_images/src_name.png)
+     - ```02_src``` -> 프로젝트 작업들 (데이터 분석연습 및 프로젝트)
+     - ```03_Docs``` -> 문서 작업으로써 ```DEV_LOG.md``` 파일 위치
+     - ```99_Archive``` -> 저장소 및 폴더 정돈을 위한 폴더 (난잡 방지)
+
+ - User Snippets
+     - import와 메모리 사용량을 위한 타입변경은 여전히 매 프로젝트마다 해야하는 번거로움
+     - Snippets 사용
+         - 'init_ds' 사용 시 모듈 호출과 타입변경코드 나옴
+             - 1. 모듈 호출 적용
+             - 2. 'ctrl + /' -> 주석 제거 후 타입변경 코드 적용
+
 
 ### TIL (간단한 Keyword 정리)
 - Monorepo
 - Rename Refactoring
 - User Snippets
+- File Structuring
+
 ## 트러블슈팅 (Troubleshooting)
 
 ### 1. 파일중복
@@ -53,6 +85,9 @@ import, 타입변경을 편하게 하는 방법이없을까 싶어서 검색하�
     - 모든 프로젝트에서 **동일한 표준 설정**을 강제하여 일관성 유지.
 
 ## 추가 공부
+ - User Snippets (사용자 코드 조각)
+     - 단축키(키워드)로 불러오는 초기 설정임.
+     - 오타를 방지하고 속도, 표준화를 위해 많이 사용하는 VSCode 내장기능. IDE(통합 개발 환경)에 대부분 내장되어 있음.
 
 # 📅 개발 및 학습 일지 (Development Log)
 ## 11.Dec.2025 [DAY-4]
