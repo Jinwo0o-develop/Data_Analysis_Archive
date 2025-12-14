@@ -130,19 +130,19 @@
     **전체 흐름 시각화로 인해 상세분석할 날(일)과 프로젝트 분석 방향을 정할 수 있었음**
 
  - 결과 및 해석
-         - ![Font_Module](../02_src/03_Month_Aanlysis/01_images/Duelaxis_Saturday.png)
+         - ![Font_Module](./01_images/Duelaxis_Saturday.png)
          - 1. 토요일은 매출건수도 높고, 매출금액도 높다
          - 2. 일요일은 매출건수는 적으나, 그에 비해서는 매출금액이 높다. 하지만, 일주일 중에서는 매출금액이 가장 적은 날이다.
-            - ![Font_Module](../02_src/03_Month_Aanlysis/01_images/Duelaxis_Tue-Thur.png)
+            - ![Font_Module](./01_images/Duelaxis_Tue-Thur.png)
          - 3. 화,수,목은 큰 변화없이 꾸준한 크기와 비교의 모습을 보임
          - 4. 쉬는 날이 가까워질수록(다음날이 쉬는 날 일수록) 매출건수와 매출금액은 증가하는 편이다.
 
     - 가설
     - 14일 - 20일까지는 **'더위'가 사람들의 소비성향을 감소시켰다.**( '특이일', '이벤트'같은 날들이 매출에 영향이 있다는 가설아래 )
          - 근거
-         - ![If_Chobok](../02_src/03_Month_Aanlysis/01_images/Duelaxis_Chobok)
+         - ![If_Chobok](./01_images/Duelaxis_Chobok)
          - 1. 다른 주 금,토요일에 비해 18일, 19일은 매출총액과 매출건수가 확연히 줄어들었다.
-         - ![If_Chobok](../02_src/03_Month_Aanlysis/01_images/Duelaxis_Chobok(2))
+         - ![If_Chobok](./01_images/Duelaxis_Chobok(2))
          - 2. 다른 주 화,수,목요일에 비해 15,16,17일은 감소하는 모습을 보인다.
       - 3. 2025년 7월은 '삼복 중 초복'으로 매출이 상승하는 캘린더 효과(Calender Effect)가 있었어야 할 것이다.
 
@@ -419,7 +419,7 @@
 - **문제 :** 시각화 과정에서 한글 및 기호가 깨지는 현상 발생  
 - **원인 :** Matplotlib은 기본적으로 영문 폰트를 사용하며, 한글 폰트 경로를 캐싱하지 못해 깨짐 발생
 - **방법 :** 폰트 매니저를 통해 경로를 직접 지정하거나 rcParams을 수정해야 함.
-- **결과 :** 경로를 직접 지정하여 한글 폰트 설
+- **결과 :** 경로를 직접 지정하여 한글 폰트 설치
 - **추가 기능** 한글로 된 매핑자료를 만들었고 '시각화'와 '전처리'에 용이해졌음
 
 ### 추가 공부
