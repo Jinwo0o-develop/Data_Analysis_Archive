@@ -142,7 +142,7 @@
          - 근거
          - ![If_Chobok](./01_images/Duelaxis_Chobok)
          - 1. 다른 주 금,토요일에 비해 18일, 19일은 매출총액과 매출건수가 확연히 줄어들었다.
-         - ![If_Chobok](./01_images/Duelaxis_Chobok(2))
+         - ![If_Chobok](../02_src/03_Month_Analysis/01_images/Duelaxis_Chobok(2))
          - 2. 다른 주 화,수,목요일에 비해 15,16,17일은 감소하는 모습을 보인다.
       - 3. 2025년 7월은 '삼복 중 초복'으로 매출이 상승하는 캘린더 효과(Calender Effect)가 있었어야 할 것이다.
 
