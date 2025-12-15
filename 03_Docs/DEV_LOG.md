@@ -130,10 +130,10 @@
     **전체 흐름 시각화로 인해 상세분석할 날(일)과 프로젝트 분석 방향을 정할 수 있었음**
 
  - 결과 및 해석
-         - ![Duel_sat](./02_src/03_Month_Analysis/01_images/Duelaxis_Saturday.png)
+         - ![Duel_sat](../02_src/03_Month_Analysis/01_images/Duelaxis_Saturday.png)
          - 1. 토요일은 매출건수도 높고, 매출금액도 높다
          - 2. 일요일은 매출건수는 적으나, 그에 비해서는 매출금액이 높다. 하지만, 일주일 중에서는 매출금액이 가장 적은 날이다.
-            - ![Duel_Tue-Thur](./02_src/03_Month_Analysis/01_images/Duelaxis_Tue-Thur.png)
+            - ![Duel_Tue-Thur](../02_src/03_Month_Analysis/01_images/Duelaxis_Tue-Thur.png)
          - 3. 화,수,목은 큰 변화없이 꾸준한 크기와 비교의 모습을 보임
          - 4. 쉬는 날이 가까워질수록(다음날이 쉬는 날 일수록) 매출건수와 매출금액은 증가하는 편이다.
 
@@ -176,13 +176,13 @@
      - axhline()으로 표시하여 발표자료로써 이해하기 쉽게 만듬
 
  - 결과 및 해석
-     - ![weekday7](./02_src/03_Month_Analysis/01_images/weekday_bar.png)
+     - ![weekday7](../02_src/03_Month_Analysis/01_images/weekday_bar.png)
          - 대부분 화,수,목 은 꾸준한 지표를 차지(15.7%/15.5%/15.5%)했으며 금,토에 매출건수와 매출총액이 많이 증가함.
          - 즉, 이천시의 2025년 7월은 평일에 마케팅을 고려할 수 있음
 
      - 검증 (다른 월도 그러한지 6월, 8월 데이터를 가져와 시각화)
-     - ![weekday6](./02_src/03_Month_Analysis/01_images/week06_bar.png)
-     - ![weekday8](./02_src/03_Month_Analysis/01_images/week08_bar.png)
+     - ![weekday6](../02_src/03_Month_Analysis/01_images/week06_bar.png)
+     - ![weekday8](../02_src/03_Month_Analysis/01_images/week08_bar.png)
          - Colab 환경에서 제작했던 '수원시'의 요일별 그래프 역시 그러함. 
          - 6월, 8월 그래프는 화,수,목요일이 '토요일'을 넘긴적이 없었음.
     
