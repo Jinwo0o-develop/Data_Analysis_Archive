@@ -130,23 +130,23 @@
     **전체 흐름 시각화로 인해 상세분석할 날(일)과 프로젝트 분석 방향을 정할 수 있었음**
 
  - 결과 및 해석
-         - ![Font_Module](./01_images/Duelaxis_Saturday.png)
+         - ![Font_Module](./02_src/03_Month_Analysis/01_images/Duelaxis_Saturday.png)
          - 1. 토요일은 매출건수도 높고, 매출금액도 높다
          - 2. 일요일은 매출건수는 적으나, 그에 비해서는 매출금액이 높다. 하지만, 일주일 중에서는 매출금액이 가장 적은 날이다.
-            - ![Font_Module](./01_images/Duelaxis_Tue-Thur.png)
+            - ![Font_Module](./02_src/03_Month_Analysis/01_images/Duelaxis_Tue-Thur.png)
          - 3. 화,수,목은 큰 변화없이 꾸준한 크기와 비교의 모습을 보임
          - 4. 쉬는 날이 가까워질수록(다음날이 쉬는 날 일수록) 매출건수와 매출금액은 증가하는 편이다.
 
     - 가설
     - 14일 - 20일까지는 **'더위'가 사람들의 소비성향을 감소시켰다.**( '특이일', '이벤트'같은 날들이 매출에 영향이 있다는 가설아래 )
          - 근거
-         - ![If_Chobok](./01_images/Duelaxis_Chobok)
+         - ![If_Chobok](./02_src/03_Month_Analysis/01_images/Duelaxis_Chobok.png)
          - 1. 다른 주 금,토요일에 비해 18일, 19일은 매출총액과 매출건수가 확연히 줄어들었다.
-         - ![If_Chobok](../02_src/03_Month_Analysis/01_images/Duelaxis_Chobok(2))
+         - ![If_Chobok](./02_src/03_Month_Analysis/01_images/Duelaxis_Chobok_02.png)
          - 2. 다른 주 화,수,목요일에 비해 15,16,17일은 감소하는 모습을 보인다.
       - 3. 2025년 7월은 '삼복 중 초복'으로 매출이 상승하는 캘린더 효과(Calender Effect)가 있었어야 할 것이다.
 
-         - 반문 가능성
+         - **생각해야 할 가능성**
              - 절대적인 '매출총액'의 값이 낮은 것은 사실이나, 다른 주 '금', '토' 매출 건수에 비해서 '매출총액'은 높은 편
                  - '18일' 금요일은 대체로 건수는 적으나 총액은 비슷함.
 
@@ -176,13 +176,13 @@
      - axhline()으로 표시하여 발표자료로써 이해하기 쉽게 만듬
 
  - 결과 및 해석
-     - ![If_Chobok](../02_src/03_Month_Aanlysis/01_images/weekday_bar.png)
+     - ![If_Chobok](./02_src/03_Month_Analysis/01_images/weekday_bar.png)
          - 대부분 화,수,목 은 꾸준한 지표를 차지(15.7%/15.5%/15.5%)했으며 금,토에 매출건수와 매출총액이 많이 증가함.
          - 즉, 이천시의 2025년 7월은 평일에 마케팅을 고려할 수 있음
 
      - 검증 (다른 월도 그러한지 6월, 8월 데이터를 가져와 시각화)
-     - ![If_Chobok](../02_src/03_Month_Aanlysis/01_images/week06_bar.png)
-     - ![If_Chobok](../02_src/03_Month_Aanlysis/01_images/week08_bar.png)
+     - ![If_Chobok](./02_src/03_Month_Analysis/01_images/week06_bar.png)
+     - ![If_Chobok](./02_src/03_Month_Analysis/01_images/week08_bar.png)
          - Colab 환경에서 제작했던 '수원시'의 요일별 그래프 역시 그러함. 
          - 6월, 8월 그래프는 화,수,목요일이 '토요일'을 넘긴적이 없었음.
     
