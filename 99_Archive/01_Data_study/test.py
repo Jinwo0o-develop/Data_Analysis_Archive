@@ -1,0 +1,1 @@
+print("데이터 분석가 연습 with Github")
